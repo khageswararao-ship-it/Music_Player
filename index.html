@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Music Player</title>
+
+    <!-- Browser Logo -->
+    <link rel="icon" href="assets/logos/logo.png">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- =========================
+             SIDEBAR
+        ========================== -->
+
+        <aside class="sidebar">
+
+            <div class="logo-area">
+
+                <img src="assets/logos/logo.png" alt="Logo">
+
+                <div class="logo-text">
+                    <h2>Music</h2>
+                   <span>Player</span>
+                </div>
+
+            </div>
+
+            <ul class="menu">
+
+                <li class="active" id="allSongsBtn">
+                    <i class="fa-solid fa-music"></i>
+                    <span>All Songs</span>
+                </li>
+
+                <li id="albumsBtn">
+                    <i class="fa-solid fa-compact-disc"></i>
+                    <span>Albums</span>
+                </li>
+
+                <li id="artistsBtn">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Artists</span>
+                </li>
+
+                <li id="favoritesBtn">
+                    <i class="fa-solid fa-heart"></i>
+                    <span>Favorites</span>
+                </li>
+
+                <li id="recentBtn">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <span>Recently Played</span>
+                </li>
+
+                <li id="playlistBtn">
+                    <i class="fa-solid fa-list"></i>
+                    <span>Playlists</span>
+                </li>
+
+                <li id="queueBtn">
+                    <i class="fa-solid fa-list-check"></i>
+                    <span>Queue</span>
+                </li>
+
+            </ul>
+
+
+
+
+            <div class="bottom-menu">
+
+                <button id="themeBtn">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+
+                <button id="settingsBtn">
+                    <i class="fa-solid fa-gear"></i>
+                </button>
+
+            </div>
+
+        </aside>
+
+        <!-- =========================
+             SONG LIBRARY
+        ========================== -->
+
+        <main class="library">
+
+            <div class="library-top">
+
+                <h1 id="pageTitle">All Songs</h1>
+
+                <button id="createPlaylistBtn">
+                    <i class="fa-solid fa-plus"></i> New Playlist
+                </button>
+
+                <input
+                    type="text"
+                    id="search"
+                    placeholder="Search songs...">
+
+            </div>
+            <div id="songList">
+
+                <!-- Songs will be created by JavaScript -->
+
+            </div>
+
+        </main>
+
+        <!-- =========================
+             MINI PLAYER
+        ========================== -->
+
+        <div class="mini-player" id="miniPlayer">
+
+            <div class="mini-left">
+
+                <img
+                    id="miniImage"
+                    src="assets/Images/hanuman chalisa.jpg"
+                    alt="Album">
+
+                <div class="mini-info">
+
+                    <h4 id="miniTitle">Hanuman Chalisa</h4>
+
+                    <p id="miniArtist">Unknown Artist</p>
+
+                </div>
+
+            </div>
+
+            <div class="mini-controls">
+
+                <button id="miniPrev">
+                    <i class="fa-solid fa-backward"></i>
+                </button>
+
+                <button id="miniPlay">
+                    <i class="fa-solid fa-play"></i>
+                </button>
+
+                <button id="miniNext">
+                    <i class="fa-solid fa-forward"></i>
+                </button>
+
+            </div>
+
+            <div class="mini-right">
+
+                <span id="miniCurrent">0:00</span>
+
+                <input
+                    type="range"
+                    id="miniProgress"
+                    value="0"
+                    min="0"
+                    max="100">
+
+                <span id="miniDuration">0:00</span>
+
+            </div>
+
+        </div>
+
+        <!-- =========================
+             FULL SCREEN PLAYER
+        ========================== -->
+
+        <div class="full-player" id="fullPlayer">
+
+            <div class="full-header">
+
+                <button id="closePlayer">
+                    <i class="fa-solid fa-angle-down"></i>
+                </button>
+
+                <h2>Now Playing</h2>
+
+            </div>
+
+            <div class="full-body">
+
+                <img
+                    id="albumImage"
+                    src="assets/Images/hanuman chalisa.jpg"
+                    alt="Album">
+
+
+                    <div class="visualizer">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+
+                <h1 id="songTitle">Hanuman Chalisa</h1>
+
+                <h3 id="songArtist">Unknown Artist</h3>
+
+                <p id="songAlbum">Hanuman Chalisa</p>
+
+                <input
+                    type="range"
+                    id="progressBar"
+                    value="0"
+                    min="0"
+                    max="100">
+
+                <div class="time">
+
+                    <span id="currentTime">0:00</span>
+
+                    <span id="duration">0:00</span>
+
+                </div>
+
+                    <div class="controls">
+
+                        <button id="shuffle">
+                            <i class="fa-solid fa-shuffle"></i>
+                        </button>
+
+                        <button id="previous">
+                            <i class="fa-solid fa-backward"></i>
+                        </button>
+
+                        <button id="play">
+                            <i class="fa-solid fa-play"></i>
+                        </button>
+
+                        <button id="next">
+                            <i class="fa-solid fa-forward"></i>
+                        </button>
+
+                        <button id="repeat">
+                            <i class="fa-solid fa-repeat"></i>
+                        </button>
+
+                    </div>
+
+                <div class="volume">
+
+                    <i class="fa-solid fa-volume-high"></i>
+
+                    <input
+                        type="range"
+                        id="volume"
+                        min="0"
+                        max="100"
+                        value="100">
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- =========================
+             SETTINGS PANEL
+        ========================== -->
+
+        <div class="settings-panel" id="settingsPanel">
+
+            <div class="settings-header">
+
+                <h2>Settings</h2>
+
+                <button id="closeSettings">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+
+            <div class="setting-item">
+
+                <span>Dark Mode</span>
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="themeToggle"
+                        checked>
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+            <div class="setting-item">
+
+                <span>Animations</span>
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="animationToggle"
+                        checked>
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+            <div class="setting-item">
+
+                <span>Album Rotation</span>
+
+                <label class="switch">
+                    <input
+                        type="checkbox"
+                        id="rotationToggle"
+                        checked>
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+        </div>
+
+                    <!-- Playlist Popup -->
+            <div id="playlistPopup" class="playlist-popup">
+                <div class="playlist-popup-content">
+                    <h3>Select Playlist</h3>
+
+                    
+
+                    <div id="playlistList"></div>
+
+                    <button id="popupCreatePlaylist">
+                        <i class="fa-solid fa-plus"></i> Create New Playlist
+                    </button>
+
+                    <button id="closePlaylistPopup">Close</button>
+                </div>
+            </div>
+
+            <!-- Queue Popup -->
+                <div id="queuePopup" class="queue-popup">
+
+                    <div class="queue-content">
+
+                        <div class="queue-header">
+                            <h2>Up Next</h2>
+
+                            <button id="closeQueue">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+                        </div>
+
+                        <div id="queueList">
+
+                            <p class="empty-queue">
+                                Queue is empty
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+        <!-- Audio -->
+
+        <audio id="audio"></audio>
+
+    </div>
+
+
+
+    <div id="toast" class="toast">
+        <i id="toastIcon" class="fa-solid fa-circle-check"></i>
+        <span id="toastText">Success</span>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+<div id="confirmModal" class="confirm-modal">
+
+    <div class="confirm-box">
+
+        <h2>Delete Playlist?</h2>
+
+        <p>Are you sure you want to delete this playlist?</p>
+
+        <div class="confirm-buttons">
+
+            <button id="cancelDelete">Cancel</button>
+
+            <button id="confirmDelete">Delete</button>
+
+        </div>
+
+    </div>
+
+</div>
+
+    <!-- JavaScript -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
